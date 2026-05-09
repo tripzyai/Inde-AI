@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase/client';
+import { getSupabaseAdmin } from '@/lib/supabase/client';
 
 export async function POST(request: Request) {
   try {
+    const supabaseAdmin = getSupabaseAdmin() as any;
     const auditData = await request.json();
 
     // Validate required fields
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
     console.log('Audit data received:', JSON.stringify(auditData, null, 2));
 
     // Calculate lead score using the database function
-    const { data: scoreData, error: scoreError } = await supabaseAdmin.rpc('calculate_lead_score', {
+    const { data: scoreData, error: scoreError } = await (supabaseAdmin as any).rpc('calculate_lead_score', {
       p_industry: auditData.industry,
       p_biggest_problem: auditData.biggestProblem,
       p_tools_count: auditData.tools.length,

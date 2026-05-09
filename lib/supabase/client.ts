@@ -1,22 +1,36 @@
 import { createClient } from '@supabase/supabase-js';
 
+let _supabaseClient: any | null = null;
+let _supabaseAdmin: any | null = null;
+
+function requireEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) throw new Error(`${name} is required.`);
+  return value;
+}
+
 // Client-side Supabase client (uses anon key - safe for browser)
-export const supabaseClient = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+export function getSupabaseClient() {
+  if (_supabaseClient) return _supabaseClient;
+  const url = requireEnv('NEXT_PUBLIC_SUPABASE_URL');
+  const anonKey = requireEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY');
+  _supabaseClient = createClient(url, anonKey) as any;
+  return _supabaseClient;
+}
 
 // Server-side Supabase client (uses service role key - server only)
-export const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  {
+export function getSupabaseAdmin() {
+  if (_supabaseAdmin) return _supabaseAdmin;
+  const url = requireEnv('NEXT_PUBLIC_SUPABASE_URL');
+  const serviceRoleKey = requireEnv('SUPABASE_SERVICE_ROLE_KEY');
+  _supabaseAdmin = createClient(url, serviceRoleKey, {
     auth: {
       autoRefreshToken: false,
-      persistSession: false
-    }
-  }
-);
+      persistSession: false,
+    },
+  }) as any;
+  return _supabaseAdmin;
+}
 
 // Database types for TypeScript
 export interface AuditRequest {

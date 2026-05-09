@@ -1,19 +1,15 @@
 import React from 'react';
 
-interface ButtonProps {
-  children: React.ReactNode;
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary';
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
-}
+};
 
 export default function Button({
   children,
   variant = 'primary',
-  onClick,
   type = 'button',
-  className = ''
+  className = '',
+  ...props
 }: ButtonProps) {
   const baseStyles = 'inline-flex items-center justify-center h-14 px-8 rounded-full font-semibold text-base transition-all duration-200 whitespace-nowrap';
 
@@ -25,8 +21,8 @@ export default function Button({
   return (
     <button
       type={type}
-      onClick={onClick}
-      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${className} disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-md disabled:hover:bg-[#635bff] disabled:hover:border-slate-200`}
+      {...props}
     >
       {children}
     </button>

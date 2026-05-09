@@ -25,7 +25,7 @@ export default function Industries() {
         'Appointment inquiries',
         'Treatment FAQs',
         'New patient intake',
-        'Insurance/basic pricing questions',
+        'Insurance and coverage FAQs',
         'After-hours lead capture',
         'Booking handoff',
       ],

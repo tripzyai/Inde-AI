@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Footer() {
   const links = [
-    { href: '#services', label: 'Services' },
+    { href: '#implementation', label: 'Service' },
     { href: '#industries', label: 'Industries' },
-    { href: '#services', label: 'Pricing' },
+    { href: '#how-it-works', label: 'How It Works' },
     { href: '#faq', label: 'FAQ' },
   ];
 

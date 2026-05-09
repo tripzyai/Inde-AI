@@ -22,7 +22,7 @@ export default function Navbar({ onOpenChatbot }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { href: '#services', label: 'Services' },
+    { href: '#implementation', label: 'Service' },
     { href: '#industries', label: 'Industries' },
     { href: '#how-it-works', label: 'How It Works' },
     { href: '#faq', label: 'FAQ' },

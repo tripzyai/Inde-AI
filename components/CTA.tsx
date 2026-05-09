@@ -16,7 +16,7 @@ export default function CTA({ onOpenChatbot }: CTAProps) {
             Ready to Capture More Qualified Leads From Your Website?
           </h2>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Book a free 15-minute workflow audit and we&apos;ll show you where an AI intake assistant can help your business.
+            Tell us about your business and we&apos;ll show you where an AI intake assistant can help your business.
           </p>
           <Button variant="primary" onClick={onOpenChatbot}>
             Book Free Workflow Audit

@@ -37,11 +37,13 @@ export default function Hero({ onOpenChatbot }: HeroProps) {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="primary" onClick={onOpenChatbot}>
-                Book a Free 15-Minute Workflow Audit
+                Tell Us About Your Business
               </Button>
               <Button
                 variant="secondary"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document.getElementById('implementation')?.scrollIntoView({ behavior: 'smooth' })
+                }
               >
                 See Service Menu
               </Button>

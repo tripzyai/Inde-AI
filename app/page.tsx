@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 import Problem from '@/components/Problem';
 import Solution from '@/components/Solution';
 import Industries from '@/components/Industries';
-import Pricing from '@/components/Pricing';
+import Implementation from '@/components/Implementation';
 import HowItWorks from '@/components/HowItWorks';
 import LeadSummary from '@/components/LeadSummary';
 import Guardrails from '@/components/Guardrails';
@@ -29,7 +29,7 @@ export default function Home() {
         <Problem />
         <Solution />
         <Industries />
-        <Pricing onOpenChatbot={openChatbot} />
+        <Implementation onOpenChatbot={openChatbot} />
         <HowItWorks />
         <LeadSummary />
         <Guardrails />
